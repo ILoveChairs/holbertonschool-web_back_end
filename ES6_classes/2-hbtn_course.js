@@ -36,8 +36,8 @@ export default class HolbertonCourse {
       throw new TypeError('Students must be an array');
     }
     for (const element of value) {
-      if (typeof element !== 'number') {
-        throw new TypeError('Length must be an array of numbers');
+      if (typeof element !== 'string') {
+        throw new TypeError('Length must be an array of string');
       }
     }
     this._students = value;
