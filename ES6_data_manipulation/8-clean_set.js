@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 export default function cleanSet(set, startString) {
-  if (startString.length === 0) {
+  if (startString === undefined || startString.length === 0) {
     return '';
   }
   const output = [];
