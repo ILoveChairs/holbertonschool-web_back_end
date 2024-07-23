@@ -1,3 +1,3 @@
-export default function guardrail() {
-  return '';
+export default function getResponseFromAPI() {
+  return new Promise(() => '');
 }
