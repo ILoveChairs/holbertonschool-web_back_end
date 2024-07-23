@@ -1,4 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 export default function hasValuesFromArray(set, array) {
-  return new Set(set).isSupersetOf(new Set(array));
+  let bool = true;
+  const settedArray = new Set(array);
+  for (const element of settedArray) {
+    if (!set.has(element)) {
+      bool = false;
+    }
+  }
+  return bool;
 }
