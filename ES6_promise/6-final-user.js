@@ -5,9 +5,9 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   return Promise.all([
     signUpUser(firstName, lastName)
       .then((response) => ({ status: 'fulfilled', value: response }))
-      .catch((err) => ({ status: 'rejected', value: err })),
+      .catch((err) => ({ status: 'rejected', value: err[0] })),
     uploadPhoto(fileName)
       .then((response) => ({ status: 'fulfilled', value: response }))
-      .catch((err) => ({ status: 'rejected', value: err })),
+      .catch((err) => ({ status: 'rejected', value: err[0] })),
   ]).then((response) => response);
 }
