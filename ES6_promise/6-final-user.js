@@ -8,7 +8,10 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   ];
   const resolvedPromised = [];
   for (const func of promises) {
-    resolvedPromised.push(func.then((response) => response, (err) => err));
+    resolvedPromised.push(func.then(
+      (response) => ({ status: response.status, value: response.value }),
+      (err) => err,
+    ));
   }
   return new Promise((resolve) => {
     resolve(resolvedPromised);
