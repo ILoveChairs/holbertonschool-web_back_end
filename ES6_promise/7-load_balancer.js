@@ -1,3 +1,3 @@
-export default function guardrail() {
-  return '';
+export default function loadBalancer(chinaDownload, USDownload) {
+  return Promise.race([chinaDownload, USDownload]);
 }
