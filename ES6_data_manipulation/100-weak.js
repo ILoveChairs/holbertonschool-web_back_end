@@ -5,7 +5,7 @@ export function queryAPI(endpoint) {
   if (len === undefined) {
     len = 0;
   }
-  if (len >= 5) {
+  if (len >= 4) {
     throw new Error('Endpoint load is high');
   }
 
