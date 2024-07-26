@@ -6,18 +6,21 @@ export default async function asyncUploadUser() {
   function onError() {
     output.photo = {};
     output.user = {};
-    return output;
   }
 
   uploadPhoto().then((result) => {
     output.photo = result;
   }).catch(() => {
     onError();
+    return output;
   });
+
   createUser().then((result) => {
     output.user = result;
   }).catch(() => {
     onError();
+    return output;
   });
+
   return output;
 }
