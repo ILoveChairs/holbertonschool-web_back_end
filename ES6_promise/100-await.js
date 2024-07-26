@@ -2,15 +2,22 @@ import { uploadPhoto, createUser } from './utils';
 
 export default async function asyncUploadUser() {
   const output = {};
+
+  function onError() {
+    output.photo = {};
+    output.user = {};
+    return output;
+  }
+
   uploadPhoto().then((result) => {
     output.photo = result;
   }).catch(() => {
-    output.photo = {};
+    onError();
   });
   createUser().then((result) => {
     output.user = result;
   }).catch(() => {
-    output.user = {};
+    onError();
   });
   return output;
 }
