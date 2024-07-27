@@ -3,24 +3,19 @@ import { uploadPhoto, createUser } from './utils';
 export default async function asyncUploadUser() {
   const output = {};
 
-  function onError() {
-    output.photo = {};
-    output.user = {};
+  async function errorHandler() {
+    const photo = await uploadPhoto().then((result) => result).catch(() => ({}));
+    const user = await createUser().then((result) => result).catch(() => ({}));
+    if (!photo || !user) {
+      output.photo = {};
+      output.user = {};
+    } else {
+      output.photo = photo;
+      output.user = user;
+    }
   }
 
-  uploadPhoto().then((result) => {
-    output.photo = result;
-  }).catch(() => {
-    onError();
-    return output;
-  });
-
-  createUser().then((result) => {
-    output.user = result;
-  }).catch(() => {
-    onError();
-    return output;
-  });
+  await errorHandler();
 
   return output;
 }
