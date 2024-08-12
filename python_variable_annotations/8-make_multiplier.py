@@ -4,8 +4,10 @@
     Quick doc
 '''
 
+import typing
 
-def func():
+
+def make_multiplier(multiplier: float) -> typing.Callable[[float], float]:
     ''' quickdoc '''
 
-    pass
+    return lambda x: x * multiplier
