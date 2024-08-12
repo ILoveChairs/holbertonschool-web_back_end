@@ -15,11 +15,11 @@ async def wait_n(n: int, max_delay: int) -> list:
     delay_list = []
     tasks = []
 
-    async def adder(i):
-        delay_list.append(await wait_random(i))
+    async def adder(delay):
+        delay_list.append(await wait_random(delay))
 
-    for i in range(n):
-        tasks.append(asyncio.create_task(adder(i)))
+    for _ in range(n):
+        tasks.append(asyncio.create_task(adder(max_delay)))
 
     for task in tasks:
         await task
