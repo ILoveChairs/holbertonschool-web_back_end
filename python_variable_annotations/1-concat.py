@@ -5,7 +5,7 @@
 '''
 
 
-def func():
+def concat(str1: str, str2: str) -> str:
     ''' quickdoc '''
 
-    pass
+    return str1 + str2
