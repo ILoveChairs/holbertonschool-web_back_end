@@ -4,8 +4,10 @@
     Quick doc
 '''
 
+import typing
 
-def func():
+
+def sum_mixed_list(mxd_list: typing.List[typing.Union[int, float]]) -> float:
     ''' quickdoc '''
 
-    pass
+    return sum(mxd_list)
