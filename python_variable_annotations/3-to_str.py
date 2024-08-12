@@ -5,7 +5,7 @@
 '''
 
 
-def func():
+def to_str(n: float) -> str:
     ''' quickdoc '''
 
-    pass
+    return str(n)
