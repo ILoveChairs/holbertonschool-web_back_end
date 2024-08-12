@@ -5,7 +5,7 @@
 '''
 
 
-def func():
+def add(a: float, b: float) -> float:
     ''' quickdoc '''
 
-    pass
+    return a + b
