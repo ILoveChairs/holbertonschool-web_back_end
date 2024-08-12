@@ -16,6 +16,7 @@ async def wait_n(n: int, max_delay: int) -> list:
     tasks = []
 
     async def adder(delay):
+        ''' quickdoc '''
         delay_list.append(await wait_random(delay))
 
     for _ in range(n):
