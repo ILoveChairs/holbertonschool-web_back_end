@@ -8,7 +8,7 @@ import random
 import asyncio
 
 
-async def wait_random(max_delay=10):
+async def wait_random(max_delay: int = 10) -> float:
     ''' quickdoc '''
 
     time = random.uniform(0.0, float(max_delay))
