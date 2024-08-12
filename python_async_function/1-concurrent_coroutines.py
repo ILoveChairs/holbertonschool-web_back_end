@@ -12,5 +12,5 @@ async def wait_n(n: int, max_delay: int) -> list:
 
     delay_list = []
     for i in range(n):
-        delay_list.append(wait_random(i))
+        delay_list.append(await wait_random(i))
     return delay_list
