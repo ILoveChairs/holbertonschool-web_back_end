@@ -5,7 +5,7 @@
 '''
 
 
-def func():
+def floor(n: float) -> int:
     ''' quickdoc '''
 
-    pass
+    return n.__floor__()
