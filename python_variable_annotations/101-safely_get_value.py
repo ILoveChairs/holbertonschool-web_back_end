@@ -14,6 +14,8 @@ def safely_get_value(
         key: typing.Any,
         default: typing.Union[T, None] = None
 ) -> typing.Union[typing.Any, T]:
+    ''' quickdoc '''
+
     if key in dct:
         return dct[key]
     else:
