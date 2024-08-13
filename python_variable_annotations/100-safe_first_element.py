@@ -9,7 +9,9 @@ from typing import Any
 
 
 # The types of the elements of the input are not known
-def safe_first_element(lst: Any) -> typing.Optional[Any]:
+def safe_first_element(lst: typing.Sequence[Any]) -> typing.Optional[Any]:
+    ''' quickdoc '''
+
     if lst:
         return lst[0]
     else:
