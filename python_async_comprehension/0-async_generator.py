@@ -5,13 +5,14 @@
 '''
 
 from typing import AsyncGenerator
-from random import randint
+import random
 import asyncio
 
 
-async def async_generator() -> AsyncGenerator[int, None]:
+async def async_generator() -> AsyncGenerator[float, None]:
     ''' quickdoc '''
 
     for _ in range(10):
         await asyncio.sleep(1)
-        yield randint(0, 10)
+        num = random.uniform(0.0, 10.0)
+        yield num
