@@ -4,12 +4,12 @@
     Quickdoc
 '''
 
-from typing import AsyncGenerator
+from typing import Generator
 import random
 import asyncio
 
 
-async def async_generator() -> AsyncGenerator[float, None]:
+async def async_generator() -> Generator[float, None, None]:
     ''' quickdoc '''
 
     for _ in range(10):
