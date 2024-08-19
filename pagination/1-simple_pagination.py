@@ -4,13 +4,12 @@
     Quickdoc
 '''
 
-import typing
 import csv
 import math
-from typing import List
+from typing import List, Tuple
 
 
-def index_range(page: int, page_size: int) -> typing.Tuple[int, int]:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     ''' quickdoc '''
     n = (page - 1) * page_size
     return n, n + page_size
@@ -36,8 +35,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            assert isinstance(page, int) and page > 0
-            assert isinstance(page_size, int) and page_size > 0
-            a, b = index_range(page, page_size)
-            selected_data = self.dataset()[a:b]
-            return selected_data
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
+        a, b = index_range(page, page_size)
+        data = self.dataset()
+        if len(data) < b:
+            return []
+        selected_data = data[a:b]
+        return selected_data
