@@ -57,10 +57,13 @@ class Server:
         assert index >= 0 and index <= db_len
 
         output_data = []
+        for i in range(index, index + page_size):
+            if row := indexed_data.get(i):
+                output_data.append(row)
 
         return {
             'index': index,
-            'next_index': index + page_size,
-            'page_size': page_size,
             'data': output_data,
+            'page_size': page_size,
+            'next_index': index + page_size,
         }
