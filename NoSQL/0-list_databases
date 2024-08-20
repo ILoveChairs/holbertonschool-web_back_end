@@ -1,2 +1,2 @@
 // my comment
-db.adminCommand( { listDatabases: 1, nameOnly: true} )
+show databases
