@@ -11,12 +11,16 @@ def top_students(mongo_collection):
 
     # AVERAGE CALCULATIONS
     for student in students:
-        student['averageScore'] = sum(
-            [topic.get('score') for topic in student.get('topics')]
+        topics = student.get('topics')
+        student['averageScore'] = (
+            sum([topic.get('score') for topic in topics]) / len(topics)
         )
 
 
     # SORTING
-    students.sort(key=lambda student: student.get('averageScore', 0))
+    students.sort(
+        key=lambda student: student.get('averageScore', 0),
+        reverse=True
+    )
 
     return students
