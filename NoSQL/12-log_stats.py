@@ -6,6 +6,7 @@
 
 from pymongo import MongoClient
 
+
 def main():
     ''' quickdoc '''
     # DB OBJECTS
@@ -35,6 +36,7 @@ def main():
     print(f"    method PATCH: {n_of_PATCH}")
     print(f"    method DELETE: {n_of_DELETE}")
     print(f"{n_of_status_checks} status check")
+
 
 if __name__ == "__main__":
     main()
