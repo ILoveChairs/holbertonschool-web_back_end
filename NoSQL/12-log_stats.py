@@ -9,8 +9,9 @@ from pymongo import MongoClient
 
 def main():
     ''' quickdoc '''
+
     # DB OBJECTS
-    client: MongoClient = MongoClient('mongodb://127.0.0.1:27017')
+    client = MongoClient('mongodb://127.0.0.1:27017')
     db = client.logs
     collection = db.nginx
 
@@ -30,11 +31,11 @@ def main():
     # PRINT
     print(f"{n_of_logs} logs")
     print("Methods:")
-    print(f"    method GET: {n_of_GET}")
-    print(f"    method POST: {n_of_POST}")
-    print(f"    method PUT: {n_of_PUT}")
-    print(f"    method PATCH: {n_of_PATCH}")
-    print(f"    method DELETE: {n_of_DELETE}")
+    print(f"\tmethod GET: {n_of_GET}")
+    print(f"\tmethod POST: {n_of_POST}")
+    print(f"\tmethod PUT: {n_of_PUT}")
+    print(f"\tmethod PATCH: {n_of_PATCH}")
+    print(f"\tmethod DELETE: {n_of_DELETE}")
     print(f"{n_of_status_checks} status check")
 
 
