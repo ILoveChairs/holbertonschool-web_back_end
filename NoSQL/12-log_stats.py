@@ -22,7 +22,7 @@ n_of_PATCH = collection.count_documents({"method": "PATCH"})
 n_of_DELETE = collection.count_documents({"method": "DELETE"})
 
 n_of_status_checks = collection.count_documents(
-    {"method": "DELETE", "path": "/status"}
+    {"method": "GET", "path": "/status"}
 )
 
 # PRINT
