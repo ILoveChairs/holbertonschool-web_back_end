@@ -8,4 +8,4 @@
 def list_all(mongo_collection):
     ''' quickdoc '''
 
-    return [doc for doc in mongo_collection]    
+    return [doc for doc in mongo_collection.find()]    
