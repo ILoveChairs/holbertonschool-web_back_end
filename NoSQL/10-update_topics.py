@@ -5,3 +5,7 @@
 '''
 
 
+def update_topics(mongo_collection, name, topics):
+    ''' quickdoc '''
+
+    mongo_collection.update_one({"name": name}, {"$set": {"topics": topics}})
