@@ -7,8 +7,10 @@ function countStudents(path) {
 
     // Remove empty spaces
     for (const lineN in lines) {
-      if (lines[lineN].trim() == '') {
-        lines.splice(lineN, 1);
+      if (Object.hasOwn(lines, lineN)) {
+        if (lines[lineN].trim() === '') {
+          lines.splice(lineN, 1);
+        }
       }
     }
 
@@ -35,9 +37,11 @@ function countStudents(path) {
 
     // Print classes
     for (const field in fields) {
-      const numOfStudents = fields[field].length;
-      const listOfFirstNames = fields[field].join(', ');
-      console.log(`Number of students in ${field}: ${numOfStudents}. List: ${listOfFirstNames}`);
+      if (Object.hasOwn(fields, field)) {
+        const numOfStudents = fields[field].length;
+        const listOfFirstNames = fields[field].join(', ');
+        console.log(`Number of students in ${field}: ${numOfStudents}. List: ${listOfFirstNames}`);
+      }
     }
   }
 
@@ -48,7 +52,6 @@ function countStudents(path) {
   } catch (err) {
     throw Error('Cannot load the database');
   }
-
 }
 
 module.exports = countStudents;
