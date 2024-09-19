@@ -1,8 +1,8 @@
-var http = require('http');
+const http = require('http');
 
-let app = http.createServer((req, res) => {
-  res.write('Hello Holberton School!'); //write a response to the client
-  res.end(); //end the response
+const app = http.createServer((req, res) => {
+  res.write('Hello Holberton School!');
+  res.end();
 }).listen(1245);
 
 module.exports = app;
