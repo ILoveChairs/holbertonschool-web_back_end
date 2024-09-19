@@ -47,14 +47,14 @@ function countStudents(path) {
 
   // Read csv
 
-  return async () => {
-    try {
-      const data = await fs.readFile(path, { encoding: 'utf8' });
-      console.log(data);
+  try {
+    return new Promise((resolve) => {
+      const data = fs.readFile(path, { encoding: 'utf8' });
       printer(data);
-    } catch (err) {
-      throw Error('Cannot load the database');
-    }
+      resolve();
+    });
+  } catch (err) {
+    throw Error('Cannot load the database');
   }
 }
 
