@@ -36,7 +36,7 @@ function countStudents(path) {
     // Print classes
     for (const field in fields) {
       const numOfStudents = fields[field].length;
-      const listOfFirstNames = fields[field];
+      const listOfFirstNames = fields[field].join(', ');
       console.log(`Number of students in ${field}: ${numOfStudents}. List: ${listOfFirstNames}`);
     }
   }
