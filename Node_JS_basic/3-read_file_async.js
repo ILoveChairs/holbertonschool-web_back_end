@@ -1,4 +1,4 @@
-const fs = require('node:fs/promises');
+const fs = require('node:fs');
 
 function countStudents(path) {
   // Print
@@ -47,18 +47,12 @@ function countStudents(path) {
 
   // Read csv
 
-  async function a() {
-    try {
-      return new Promise((resolve) => {
-        const data = fs.readFile(path, { encoding: 'utf8' }).then((data) => data);
-        printer(data);
-        resolve();
-      });
-    } catch (err) {
+  return fs.readFile(path, 'utf8', (err, data) => {
+    if (err) {
       throw Error('Cannot load the database');
     }
-  }
-  return a()
+    printer(data);
+  });
 }
 
 module.exports = countStudents;
