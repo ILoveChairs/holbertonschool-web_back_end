@@ -47,7 +47,7 @@ async function countStudents(path) {
 
   // Read csv
   try {
-    data = await fs.readFile(path, { encoding: 'utf8' });
+    const data = await fs.readFile(path, { encoding: 'utf8' });
     printer(data);
   } catch (err) {
     throw Error('Cannot load the database');
