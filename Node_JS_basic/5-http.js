@@ -70,19 +70,14 @@ const app = http.createServer(async (req, res) => {
     res.write('Hello Holberton School!');
     res.end();
   } else if (endpoint === '/students') {
-    if (!db) {
-      res.write('Cannot load the database');
-      res.end();
-    } else {
-      res.statusCode = 200;
-      res.write('This is the list of our students\n');
-      try {
-        res.write(await readStudentsDB('database.csv'))
-      } catch (err) {
-        res.write(err.message)
-      }
-      res.end();
+    res.statusCode = 200;
+    res.write('This is the list of our students\n');
+    try {
+      res.write(await readStudentsDB(db))
+    } catch (err) {
+      res.write(err.message)
     }
+    res.end();
   } else {
     res.statusCode = 404;
     res.end();
