@@ -69,7 +69,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', async (req, res) => {
-  res.write('This is the list of our students');
+  res.write('This is the list of our students\n');
   try {
     res.write(await readStudentsDB(db));
   } catch (err) {
