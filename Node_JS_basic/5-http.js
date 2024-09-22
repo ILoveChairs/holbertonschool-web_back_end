@@ -26,10 +26,6 @@ async function countStudents(path) {
       }
     }
 
-    // Number of students
-    const studentsTotal = lines.length - 1;
-    outputList.push(`Number of students: ${studentsTotal}`);
-
     // Divide into students
     lines.splice(0, 1);
     const students = [];
