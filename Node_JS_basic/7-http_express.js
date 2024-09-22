@@ -1,6 +1,9 @@
+const fs = require('node:fs/promises');
 const express = require('express');
 
 const app = express();
+const port = 1245;
+const db = process.argv[2];
 
 /* Students Database Fetch */
 async function readStudentsDB(path) {
@@ -74,6 +77,6 @@ app.get('/students', async (req, res) => {
   }
 });
 
-app.listen(1245);
+app.listen(port);
 
 module.exports = app;
