@@ -69,12 +69,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', async (req, res) => {
-  res.send('This is the list of our students');
+  res.write('This is the list of our students');
   try {
     res.write(await readStudentsDB(db));
   } catch (err) {
     res.write(err.message);
   }
+  res.send();
 });
 
 app.listen(port);
