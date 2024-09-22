@@ -6,7 +6,7 @@ const db = process.argv[2];
 
 /* Error before execution if there is no Database as arg */
 if (!db) {
-  raise new Error('Database not set');
+  throw new Error('Database not set');
 }
 
 /* Students Database Fetch */
