@@ -73,9 +73,9 @@ const app = http.createServer(async (req, res) => {
     res.statusCode = 200;
     res.write('This is the list of our students\n');
     try {
-      res.write(await readStudentsDB(db))
+      res.write(await readStudentsDB(db));
     } catch (err) {
-      res.write(err.message)
+      res.write(err.message);
     }
     res.end();
   } else {
