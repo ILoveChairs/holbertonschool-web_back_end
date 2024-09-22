@@ -4,13 +4,7 @@ const http = require('http');
 const port = 1245;
 const db = process.argv[2];
 
-/* Error before execution if there is no Database as arg */
-if (!db) {
-  throw new Error('Database not set');
-}
-
 /* Students Database Fetch */
-
 async function readStudentsDB(path) {
   // Print
   function printer(data) {
@@ -76,14 +70,19 @@ const app = http.createServer(async (req, res) => {
     res.write('Hello Holberton School!');
     res.end();
   } else if (endpoint === '/students') {
-    res.statusCode = 200;
-    res.write('This is the list of our students\n');
-    try {
-      res.write(await readStudentsDB('database.csv'))
-    } catch (err) {
-      res.write(err.message)
+    if (!db) {
+      res.write('Cannot load the database');
+      res.end();
+    } else {
+      res.statusCode = 200;
+      res.write('This is the list of our students\n');
+      try {
+        res.write(await readStudentsDB('database.csv'))
+      } catch (err) {
+        res.write(err.message)
+      }
+      res.end();
     }
-    res.end();
   } else {
     res.statusCode = 404;
     res.end();
