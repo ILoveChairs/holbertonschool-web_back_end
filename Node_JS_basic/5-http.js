@@ -11,7 +11,7 @@ if (!db) {
 
 /* Students Database Fetch */
 
-async function countStudents(path) {
+async function readStudentsDB(path) {
   // Print
   function printer(data) {
     const outputList = [];
