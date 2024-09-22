@@ -70,7 +70,7 @@ async function countStudents(path) {
 
 /* Server Configuration */
 const app = http.createServer(async (req, res) => {
-  const endpoint = url.parse(req.url, true).pathname;
+  const endpoint = req.url;
   if (endpoint === '/') {
     res.statusCode = 200;
     res.write('Hello Holberton School!');
